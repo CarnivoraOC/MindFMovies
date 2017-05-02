@@ -1,0 +1,20 @@
+﻿@model WebAssignment.Models.Comment
+@{
+    ViewBag.Title = "AAddComment";
+}
+
+<h2>AAddComment</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    <div id="tableWrapper">
+        <table class="username-password">
+            <tr><td class="td-name">@Html.DisplayNameFor(u => u.Text)</td></tr>
+            <tr><td class="td-textbox">@Html.TextAreaFor(u => u.Text, new { Class = "textbox-td" })</td></tr>
+            <tr><td><input type="image" src="~/Content/Img/addButton.png" class="username-password-button input-td" /></td></tr>
+            <tr><td>Add Comment</td></tr>
+        </table>
+    </div>
+}

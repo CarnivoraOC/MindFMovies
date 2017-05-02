@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/CSS/main-style.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Content/CSS/login-register-style.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Content/CSS/show-movie-style.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <header>
+            @{
+                if (Session["role"] != null)
+                {
+                    if ((string)Session["role"] == "admin")
+                    {
+                        <h1>@Html.ActionLink("MindFuck Movies", "Index", "Movie", null, new { @class = "admin-header" })</h1>
+                    }
+                    else
+                    {
+                        <h1>@Html.ActionLink("MindFuck Movies", "Index", "Movie", null, new { @class = "headerimg" })</h1>
+                    }
+                    }
+                    else
+                    {
+                    <h1>@Html.ActionLink("MindFuck Movies", "Index", "Movie", null, new { @class = "headerimg" })</h1>
+                    }
+             }
+        </header>
+        <section>
+                <nav>
+                        <ul id="menu">
+                            <li class="menu-element" id="search">
+                                <div id="searchBox">
+                                    @using (Html.BeginForm("Index", "Movie", FormMethod.Get))
+                                    {
+                                        @Html.TextBox("search", null, new { id = "searchfield", value = "Search titles..." })
+                                        <input id="submitbutton" type="image" src="~/Content/Img/searchimg.png" name="submit" />
+                                    }
+                                </div>
+                            </li>
+                            <li id="horizontalLine" class="menu-element">@Html.ActionLink("Suggest Movie", "AddSuggestion", "Suggestion")</li>
+                            <li class="menu-element">@Html.ActionLink("See Suggested", "ShowSuggestions", "Suggestion")</li>
+                            @{
+                                if (Session["role"] != null)
+                                {
+                                    <li class="menu-element" id="loginn2">
+                                        <div id="loginnfield">
+                                            <img id="loginnbutton" src="~/Content/Img/logout.png" />
+                                            @Html.ActionLink("Log Out", "LogOut", "User", null, new { id = "loginn3" })
+                                        </div>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="menu-element" id="loginn2">
+                                        <div id="loginnfield">
+                                            <img id="loginnbutton" src="~/Content/Img/loginnimg.png" />
+                                            @Html.ActionLink("Log Inn", "LogInn", "User", null, new { id = "loginn3" })
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                </nav>
+            <main>
+                @RenderBody()
+            </main>
+        </section>
+</div>
+</body>
+</html>
+
+

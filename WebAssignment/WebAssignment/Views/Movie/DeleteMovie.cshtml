@@ -1,0 +1,20 @@
+﻿@model WebAssignment.Models.Movie
+@{
+    ViewBag.Title = "Delete Movie";
+}
+
+<h2>Delete Movie?</h2>
+
+@using (Html.BeginForm())
+{
+    <div id="tableWrapper">
+        <table class="username-password">
+            <tr><td class="td-name">Do you want to delete <span style="font-weight: bold; color: #FA8072">@Model.Title</span> with all dependent data?</td></tr>
+            <tr><td><input type="image" src="~/Content/Img/delete.png" class="username-password-button input-td" /></td></tr>
+            <tr><td>DELETE</td></tr>
+        </table>
+    </div>
+}
+
+
+

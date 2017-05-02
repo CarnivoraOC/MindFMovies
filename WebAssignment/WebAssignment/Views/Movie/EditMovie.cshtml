@@ -1,0 +1,36 @@
+﻿@model WebAssignment.Models.Movie
+@{
+    ViewBag.Title = "EditMovie";
+}
+
+<h2>Edit Movie</h2>
+
+@using (Html.BeginForm())
+{
+    <div id="tableWrapper">
+        <table class="username-password">
+            <tr><td class="td-name">Title</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(m => m.Title, new { @value = Model.Title, Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(m => m.Title, "Please Enter Title")</td></tr>
+
+            <tr><td class="td-name">Genre</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(m => m.Genre, new { @value = Model.Genre, Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(m => m.Genre, "Please Enter Genre")</td></tr>
+
+            <tr><td class="td-name">Release Date</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(m => m.ReleaseDate, new { @value = Model.Genre, Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(m => m.ReleaseDate, "Please Enter Year(XXXX)")</td></tr>
+
+            <tr><td class="td-name">Rating</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(m => m.Rating, new { @value = Model.Genre, Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(m => m.Rating, "Please Enter Rating(1-5)")</td></tr>
+
+            <tr><td class="td-name">Description</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(m => m.Description, new { @value = Model.Description, Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(m => m.Description, "Please Enter Description")</td></tr>
+
+            <tr><td><input type="image" src="~/Content/Img/choosefile.png" class="username-password-button input-td" /></td></tr>
+            <tr><td>SAVE CHANGES</td></tr>
+        </table>
+    </div>
+}

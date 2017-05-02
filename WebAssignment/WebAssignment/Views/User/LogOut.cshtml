@@ -1,0 +1,17 @@
+﻿@model WebAssignment.Models.User
+@{
+    ViewBag.Title = "LogInn";
+}
+
+<h2>LogInn</h2>
+@{
+    if (Session["role"] != null)
+    {
+        <p>You are logged in as:</p>
+        <p>@Session["role"]</p>
+    }
+    else
+    {
+        <p>Logged out!</p>   
+    }
+}

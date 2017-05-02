@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebAssignment.Models.Recommendation>
+@{
+    ViewBag.Title = "ShowSuggestions";
+}
+
+<h2>Suggestions</h2>
+
+<table class="tableWrap" cellspacing="0" cellpadding="0">
+    <tr class="titleWrap">
+        <th>Title</th>
+        <th>Release Date</th>
+    </tr>
+
+    @foreach (var suggestion in Model)
+    {      
+            <tr>
+                    <td class="bold-title">@suggestion.Title</td>
+                    <td class="white-date">@suggestion.ReleaseDate</td>
+                    <td>
+                        <a href="@Url.Action("SelectSuggestion", "Suggestion", new { id = suggestion.Id })">
+                            <img class="tableImg" src="~/Content/Img/loginnimg.png" />
+                        </a>
+                    </td>
+                
+                @{
+                    if (Session["role"] != null)
+                    {
+                        if ((string)Session["role"] == "admin")
+                        {
+                            <td>
+                                <a href="@Url.Action("EditSuggestion", "Suggestion", new { id = suggestion.Id })">
+                                    <img class="admin-img" src="~/Content/Img/edit.png" />
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("DeleteSuggestion", "Suggestion", new { id = suggestion.Id })">
+                                    <img class="admin-img" src="~/Content/Img/delete.png" />
+                                </a>
+                            </td>
+                        }
+                    }
+                }
+            </tr>
+    }
+</table>

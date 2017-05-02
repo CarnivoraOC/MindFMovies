@@ -1,0 +1,68 @@
+﻿/*------ START GENERAL ------*/
+#tableWrapper {
+    margin: 30px auto;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+}
+
+.username-password {
+    width: 400px;
+    margin: 0 auto;
+}
+/*------ END GENERAL ------*/
+/*------ START TD-ELEMENTS ------*/
+.username-password-button {
+    margin: 10px auto;
+    width: 50px;
+}
+
+.td-name {
+    padding-top: 40px;
+    font-family: 'Railway', sans-serif;
+    text-transform: uppercase;
+    color: white;
+}
+
+.textbox-td {
+    border: 1px solid #FA8072;
+    color: #FA8072;
+    font-size: 1.2em;
+    height: 35px;
+    outline: none;
+    background: #000000; 
+    text-align: center;
+}
+/*------ END TD-ELEMENTS ------*/
+/*------ START REGISTER ------*/
+#registerMessage {
+    font-size: 12px;
+    font-weight: lighter;
+    font-style: italic;
+    color: white;
+}
+
+#registerNew{
+    margin: 20px auto;
+	width: 70px;
+	height: 20px;
+    padding: 12px;
+	background: #d7d7d7;
+	text-align:center;
+    border-radius: 10px;
+}
+
+#registerNew:hover{
+	background: #FA8072;
+}
+
+#registerNew a{
+    font-size: 10px;
+    text-decoration:none;
+    font-family: 'Railway', sans-serif;
+    color: black;
+    margin: auto;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+/*------ END REGISTER ------*/

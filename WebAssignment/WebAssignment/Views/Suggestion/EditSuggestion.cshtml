@@ -1,0 +1,29 @@
+﻿@model WebAssignment.Models.Recommendation
+@{
+    ViewBag.Title = "EditSuggestion";
+}
+
+<h2>Edit Suggestion</h2>
+
+@using (Html.BeginForm())
+{
+    <div id="tableWrapper">
+        <table class="username-password">
+            <tr><td class="td-name">Title</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(s => s.Title, new { @value = Model.Title, Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(s => s.Title, "Please Enter Title")</td></tr>
+
+            <tr><td class="td-name">Release year</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(s => s.ReleaseDate, new { @value = Model.ReleaseDate, Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(s => s.ReleaseDate, "Please Enter Year(XXXX)")</td></tr>
+
+            <tr><td class="td-name">Review</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(s => s.Review, new { @value = Model.Review, Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(s => s.Review, "Please Enter Review")</td></tr>
+
+            <tr><td><input type="image" src="~/Content/Img/choosefile.png" class="username-password-button input-td" /></td></tr>
+            <tr><td>SAVE CHANGES</td></tr>
+        </table>
+    </div>
+}
+

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WebAssignment.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="table-title">
+    <h3>Movies</h3>
+</div>
+<table class="tableWrap" cellspacing="0" cellpadding="0">
+    <tr class="titleWrap">
+        <th>@Html.ActionLink("Title", "Index", new
+                         {
+                             sort = ViewBag.SortByTitle,
+                             search = Request.QueryString["search"]
+                         })</th>
+        <th>@Html.ActionLink("Release Date", "Index", new
+                         {
+                              sort = ViewBag.SortByReleaseDate
+                         })</th>
+        <th>@Html.ActionLink("Genre", "Index", new
+                         {
+                             sort = ViewBag.SortByGenre,
+                         })</th>
+        <th>@Html.ActionLink("Rating", "Index", new
+                         {
+                             sort = ViewBag.SortByRating
+                         })</th>
+        @{
+            if (Session["role"] != null)
+            {
+                if ((string)Session["role"] == "admin")
+                {
+                    <th>
+                        <a href='@Url.Action("AddMovie", "Movie")'>
+                            <img src='@Url.Content("~/Content/Img/addButton.png")' />
+                        </a>
+                    </th>
+                }
+            }
+        }
+    </tr>
+
+    @if (Model.Count() == 0)
+    { 
+            <tr><td colspan="4"> Records not found </td></tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+                <tr class="elementWrap">
+                    <td class="bold-title">@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td class="white-date">@Html.DisplayFor(modelItem => item.ReleaseDate)</td>
+                    <td class="light-genre">@Html.DisplayFor(modelItem => item.Genre)</td>
+                    <td class="white-rating">@Html.DisplayFor(modelItem => item.Rating)</td>
+
+                    <td>
+                        <a href="@Url.Action("SelectMovie", "Movie", new { id = item.Id })">
+                            <img class="tableImg" src="~/Content/Img/@item.Picture" />
+                        </a>
+                    </td>
+
+                    @{
+                        if (Session["role"] != null)
+                        {
+                            if ((string)Session["role"] == "admin")
+                            {
+                                <td>
+                                    <a href="@Url.Action("EditMovie", "Movie", new { id = item.Id })">
+                                        <img class="admin-img" src="~/Content/Img/edit.png" />
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("DeleteMovie", "Movie", new { id = item.Id })">
+                                        <img class="admin-img" src="~/Content/Img/delete.png" />
+                                    </a>
+                                </td>
+                            }
+                        }
+                    }
+                </tr>
+          }
+      } 
+</table>
+

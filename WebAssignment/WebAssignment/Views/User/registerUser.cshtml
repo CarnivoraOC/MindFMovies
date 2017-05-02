@@ -1,0 +1,35 @@
+﻿@model WebAssignment.Models.User
+@{
+    ViewBag.Title = "registerUser";
+}
+
+<h2>Register new user</h2>
+@{
+    String userRegistration = ViewBag.UserRegistration;
+}
+
+@using (Html.BeginForm())
+{
+    <div id="tableWrapper">
+        <table class="username-password">
+            <tr><td class="td-name">NEW @Html.DisplayNameFor(u => u.Username)</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(u => u.Username, new { Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(u => u.Username, "Please Enter Username")</td></tr>
+
+            <tr><td class="td-name">NEW @Html.DisplayNameFor(u => u.Password)</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(u => u.Password, new { Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(u => u.Password, "Please Enter Password")</td></tr>
+
+            <tr><td><input type="image" src="~/Content/Img/addButton.png" class="username-password-button input-td" /></td></tr>
+            <tr><td>REGISTER</td></tr>
+            <tr><td><p id="registerMessage">@userRegistration</p></td></tr>
+
+            <tr hidden>
+                <td hidden>
+                    <input hidden type="checkbox" id="Admin" name="Admin" checked="checked" value="False" />
+                </td>
+            </tr>
+        </table>
+    </div>   
+}
+

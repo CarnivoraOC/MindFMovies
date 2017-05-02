@@ -1,0 +1,46 @@
+﻿@model WebAssignment.Models.User
+@{
+    ViewBag.Title = "Log Inn";
+}
+
+@{ 
+    String loginMessage = ViewBag.loginMessage;
+}
+
+<h2>Login page</h2>
+@{
+    if (Session["role"] != null)
+    {
+        <p>Welcome!</p>
+        <p>You are logged in as: @Session["role"]</p>
+    }
+    else
+    {
+        if (Session["userId"] != null)
+        {
+            <p>@loginMessage</p>
+            <p>You are logged in as: @Session["role"]</p>
+        }
+        else
+        {
+            <p id="registerMessage">@loginMessage</p>
+        }
+        using (Html.BeginForm())
+        {
+            <div id="registerNew">@Html.ActionLink("New User?", "registerUser", "User")</div>
+            <div id="tableWrapper">
+                <table class="username-password">
+                    <tr><td class="td-name">@Html.DisplayNameFor(x => x.Username)</td></tr>
+                    <tr><td class="td-textbox">@Html.TextBoxFor(x => x.Username, new { Class = "textbox-td" })</td></tr>
+
+                    <tr><td class="td-name">@Html.DisplayNameFor(x => x.Password)</td></tr>
+                    <tr><td class="td-textbox">@Html.TextBoxFor(x => x.Password, new { Class = "textbox-td" })</td></tr>
+
+                    <tr><td><input type="image" src="~/Content/Img/loginnimg.png" class="username-password-button input-td" /></td></tr>
+                    <tr><td>GO!</td></tr>
+                </table>
+            </div>
+          }
+      }
+ }
+

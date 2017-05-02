@@ -1,0 +1,19 @@
+﻿@model WebAssignment.Models.Recommendation 
+@{
+    ViewBag.Title = "DeleteSuggestion";
+}
+
+<h2>Delete Suggestion</h2>
+
+@using (Html.BeginForm())
+{
+    <div id="tableWrapper">
+        <table class="username-password">
+            <tr><td class="td-name">
+                Do you want to delete the suggestion of <span style="font-weight: bold; color: #FA8072">@Model.Title</span> with all dependent data?
+            </td></tr>
+            <tr><td><input type="image" src="~/Content/Img/delete.png" class="username-password-button input-td" /></td></tr>
+            <tr><td>DELETE</td></tr>
+        </table>
+    </div>
+}

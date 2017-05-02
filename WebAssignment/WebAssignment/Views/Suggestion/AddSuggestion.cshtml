@@ -1,0 +1,37 @@
+﻿@model WebAssignment.Models.Recommendation
+@{
+    ViewBag.Title = "Suggest a Movie!";
+}
+
+<h2>Suggest a Movie</h2>
+@{
+    if (Session["role"] != null)
+    {
+        using (Html.BeginForm())
+        {
+    <div id="tableWrapper">
+        <table class="username-password">
+            <tr><td class="td-name">@Html.DisplayNameFor(s => s.Title)</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(s => s.Title, new { Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(s => s.Title, "Please Enter Title")</td></tr>
+            
+            <tr><td class="td-name">@Html.DisplayNameFor(s => s.ReleaseDate)</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(s => s.ReleaseDate, new { Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(s => s.ReleaseDate, "Please Enter Year(XXXX)")</td></tr>
+            
+            <tr><td class="td-name">Why do you suggest it?</td></tr>
+            <tr><td class="td-textbox">@Html.TextAreaFor(s => s.Review, new { Class = "textbox-td", rows = "10", cols = "50" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(s => s.Review, "Please Enter Review")</td></tr>
+
+            <tr><td><input type="image" src="~/Content/Img/addButton.png" class="username-password-button input-td" /></td></tr>
+            
+            <tr><td>SUGGEST</td></tr>
+        </table>
+    </div>
+        }
+    }
+    else
+    {
+        <p style="color:white">Please @Html.ActionLink("log in", "LogInn", "User", null, new { id = "loginn3" }) to suggest movie!</p>
+    }
+}

@@ -1,0 +1,36 @@
+﻿@model WebAssignment.Models.Movie
+@{
+    ViewBag.Title = "SelectMovie";
+}
+
+<h2>- @Model.Title -</h2>
+
+@using (Html.BeginForm())
+{
+    <div style="background-image:url(../../Content/Img/@Model.Picture); background-repeat:no-repeat; background-size: cover" id="coverImage">
+        <div id="coverInfo">
+            <div class="cover-info-element"><h4 class="info-description">- Genre -</h4><h4 id="coverGenre">@Model.Genre</h4></div>
+            <div class="cover-info-element"><h4 class="info-description">- Rating -</h4><h4 id="coverRating" >@Model.Rating</h4></div>
+            <div class="cover-info-element"><h4 class="info-description">- Year -</h4><h4 id="coverDate" >@Model.ReleaseDate</h4></div> 
+        </div>
+    </div>
+
+    <div id="topLine"></div>
+        <p id="description">@Model.Description</p>
+    <div id="topLine"></div>
+
+    foreach (var item in Model.Comment)
+    {
+        <div>
+            <table class="username-password">
+                <tr>
+                    <td class="white-date">@Model.Comment</td>
+                </tr>
+            </table>
+        </div>
+    }
+}
+
+<div class="add-comments">
+    @Html.Partial("~/Views/Comment/_AddComment.cshtml", new WebAssignment.Models.Comment())
+</div>

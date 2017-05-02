@@ -1,0 +1,91 @@
+﻿/*------ START COVERIMAGE ------*/
+h2{
+    margin-top: 4%;
+    margin-bottom: 4%;
+
+}
+
+.info-description{
+    font-style:italic;
+    font-weight: lighter;
+    color: white;
+    font-size: 0.7em;
+
+}
+#coverImage{
+    width: 80%;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#coverInfo{
+    position: absolute;
+    width: 100%;
+    height: 29%;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.85;
+}
+
+.cover-info-element{
+    font-family: 'Railway', sans-serif;
+    color: white;
+    width: 33%;
+    float: left;
+    text-align:center;
+    font-size: 1.4em;
+    font-weight: 300;
+}
+
+#coverRating{
+    color: #FA8072;
+}
+/*------ END COVERIMAGE ------*/
+/*------ START DESCRIPTION ------*/
+#description{
+    font-weight: 100;
+    text-transform: none;
+    line-height: normal;
+    color: white;
+    margin: 0 auto;
+    width: 80%;
+}
+
+#topLine{
+    width: 80%;
+    height: 1px;
+    border-top: 1px solid #FA8072;
+    margin: 0 auto;
+    margin-bottom: 2%;
+}
+/*------ END DESCRIPTION ------*/
+/*------ START COMMENTSECTION ------*/
+#commentButton{
+    margin: 20px auto;
+	width: 6%;
+	height: 4%;
+    padding: 12px;
+	background: #d7d7d7;
+	text-align:center;
+    border-radius: 10px;
+}
+
+#commentButton:hover{
+	background: #FA8072;
+}
+
+#commentButton a{
+    font-size: 1em;
+    text-decoration:none;
+    font-family: 'Railway', sans-serif;
+    color: black;
+    margin: auto;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.add-comments{
+    margin-top: 2% auto;
+}
+/*------ END COMMENTSECTION ------*/

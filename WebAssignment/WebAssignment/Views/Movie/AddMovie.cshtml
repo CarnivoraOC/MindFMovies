@@ -1,0 +1,37 @@
+﻿@model WebAssignment.Models.Movie
+@{
+    ViewBag.Title = "AddMovie";
+}
+
+<h2>Add New Movie</h2>
+
+@using (Html.BeginForm("AddMovie", "Movie", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="tableWrapper">
+        <table class="username-password">
+            <tr><td class="td-name">@Html.DisplayNameFor(m => m.Title)</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(m => m.Title, new { Class = "textbox-td" } )</td></tr>
+            <tr><td>@Html.ValidationMessageFor(m => m.Title, "Please Enter Title")</td></tr>
+
+            <tr><td class="td-name">@Html.DisplayNameFor(m => m.ReleaseDate)</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(m => m.ReleaseDate, new { Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(m => m.ReleaseDate, "Please Enter Year(XXXX)")</td></tr>
+
+            <tr><td class="td-name">@Html.DisplayNameFor(m => m.Genre)</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(m => m.Genre, new { Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(m => m.Genre, "Please Enter Genre")</td></tr>
+
+            <tr><td class="td-name">@Html.DisplayNameFor(m => m.Description)</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(m => m.Description, new { Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(m => m.Description, "Please Enter Description")</td></tr>
+
+            <tr><td class="td-name">@Html.DisplayNameFor(m => m.Rating)</td></tr>
+            <tr><td class="td-textbox">@Html.TextBoxFor(m => m.Rating, new { Class = "textbox-td" })</td></tr>
+            <tr><td>@Html.ValidationMessageFor(m => m.Rating, "Please Enter Rating(1-5)")</td></tr>
+
+            <tr><td class="td-name">@Html.DisplayNameFor(m => m.Picture)</td></tr>
+            <tr><td><input type="file" name="file" /></td></tr>
+            <tr><td><input type="image" class="username-password-button input-td" src="~/Content/Img/addbutton.png" /></td></tr>
+        </table>
+    </div>
+}
